@@ -12,6 +12,9 @@ io.on('connection', function(socket){
   });
 });
 
-http.listen(3000, function(){
-  console.log('listening on *:3000');
+const PORT = 3000;
+const IP = '127.0.0.1';
+
+http.listen(PORT, IP, function(){
+  console.log('listening on:\t'+IP+':'+PORT);
 });

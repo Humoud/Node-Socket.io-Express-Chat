@@ -22,11 +22,14 @@
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
       var socket = io();
+      // Form submit listener
       $('form').submit(function(){
+        // emit event to backend
         socket.emit('chat message', $('#m').val());
         $('#m').val('');
         return false;
       });
+      // listen to event, receiving a message
       socket.on('chat message', function(msg){
         $('#messages').append($('<li>').text(msg));
       });
